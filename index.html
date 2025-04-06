@@ -1,0 +1,509 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dream Collective Canada - Local Vancouver Gift Shop</title>
+    <style>
+        /* Basic Reset & Typography */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+        h1, h2, h3 {
+            font-family: 'Playfair Display', serif;
+            font-weight: 400;
+            margin-bottom: 1rem;
+        }
+        
+        /* Header Styles */
+        header {
+            background-color: #fff;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            padding: 1rem 2rem;
+        }
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: #5a3e2b;
+            text-decoration: none;
+        }
+        nav ul {
+            display: flex;
+            list-style: none;
+        }
+        nav ul li {
+            margin-left: 2rem;
+        }
+        nav ul li a {
+            text-decoration: none;
+            color: #333;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+        nav ul li a:hover {
+            color: #8c6a56;
+        }
+        
+        /* Hero Section */
+        .hero {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url('https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+            background-size: cover;
+            background-position: center;
+            height: 80vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+        }
+        .hero-content {
+            max-width: 800px;
+            padding: 2rem;
+        }
+        .hero h1 {
+            font-size: 3rem;
+            margin-bottom: 1.5rem;
+            text-shadow: 1px 1px 3px rgba(0,0,0,0.5);
+        }
+        .hero p {
+            font-size: 1.2rem;
+            margin-bottom: 2rem;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+        }
+        .btn {
+            display: inline-block;
+            background-color: #8c6a56;
+            color: white;
+            padding: 0.8rem 2rem;
+            border-radius: 30px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: background-color 0.3s;
+        }
+        .btn:hover {
+            background-color: #5a3e2b;
+        }
+        
+        /* Main Content Sections */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+        .section-title {
+            text-align: center;
+            margin-bottom: 3rem;
+            font-size: 2.2rem;
+            color: #5a3e2b;
+        }
+        
+        /* Our Story Section */
+        .our-story {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        .our-story-text {
+            flex: 1;
+        }
+        .our-story-image {
+            flex: 1;
+            border-radius: 10px;
+            overflow: hidden;
+        }
+        .our-story-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        /* Categories Section */
+        .categories {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .category-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            height: 300px;
+        }
+        .category-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s;
+        }
+        .category-card:hover img {
+            transform: scale(1.05);
+        }
+        .category-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.7), transparent);
+            padding: 1.5rem;
+            color: white;
+        }
+        
+        /* Artisans Section */
+        .artisans {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 2rem;
+            margin-bottom: 4rem;
+        }
+        .artisan-card {
+            background-color: #f9f5f2;
+            border-radius: 10px;
+            overflow: hidden;
+            text-align: center;
+            transition: transform 0.3s;
+        }
+        .artisan-card:hover {
+            transform: translateY(-10px);
+        }
+        .artisan-image {
+            height: 250px;
+            overflow: hidden;
+        }
+        .artisan-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .artisan-info {
+            padding: 1.5rem;
+        }
+        
+        /* Why Shop Local Section */
+        .shop-local {
+            background-color: #f9f5f2;
+            padding: 4rem 2rem;
+            text-align: center;
+        }
+        .benefits {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .benefit {
+            padding: 1.5rem;
+        }
+        .benefit-icon {
+            font-size: 2.5rem;
+            color: #8c6a56;
+            margin-bottom: 1rem;
+        }
+        
+        /* Footer */
+        footer {
+            background-color: #5a3e2b;
+            color: white;
+            padding: 4rem 2rem;
+        }
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 2rem;
+        }
+        .footer-logo {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .footer-links h3 {
+            margin-bottom: 1.5rem;
+            font-size: 1.2rem;
+        }
+        .footer-links ul {
+            list-style: none;
+        }
+        .footer-links ul li {
+            margin-bottom: 0.5rem;
+        }
+        .footer-links ul li a {
+            color: #d9c7b8;
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+        .footer-links ul li a:hover {
+            color: white;
+        }
+        .newsletter input {
+            width: 100%;
+            padding: 0.8rem;
+            margin-bottom: 1rem;
+            border: none;
+            border-radius: 4px;
+        }
+        .social-icons {
+            display: flex;
+            gap: 1rem;
+            margin-top: 1rem;
+        }
+        .social-icons a {
+            color: white;
+            font-size: 1.5rem;
+        }
+        .copyright {
+            text-align: center;
+            margin-top: 3rem;
+            padding-top: 2rem;
+            border-top: 1px solid #8c6a56;
+            color: #d9c7b8;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .categories, .artisans, .benefits {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            .our-story {
+                flex-direction: column;
+            }
+        }
+        @media (max-width: 768px) {
+            .header-container {
+                flex-direction: column;
+            }
+            nav ul {
+                margin-top: 1rem;
+            }
+            .hero h1 {
+                font-size: 2.2rem;
+            }
+            .footer-container {
+                grid-template-columns: 1fr;
+                gap: 3rem;
+            }
+        }
+        @media (max-width: 480px) {
+            .categories, .artisans, .benefits {
+                grid-template-columns: 1fr;
+            }
+            nav ul li {
+                margin-left: 1rem;
+            }
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <header>
+        <div class="header-container">
+            <a href="#" class="logo">Dream Collective</a>
+            <nav>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Artisans</a></li>
+                    <li><a href="#">About</a></li>
+                    <li><a href="#">Visit Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                    <li><a href="#"><i class="fas fa-shopping-cart"></i></a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Discover Handmade Treasures from Vancouver's Finest Artisans</h1>
+            <p>Dream Collective Canada is a locally-owned gift shop offering a curated selection of handmade and unique items while supporting our community of artisans.</p>
+            <a href="#" class="btn">Shop Local Now</a>
+        </div>
+    </section>
+
+    <main>
+        <section class="container">
+            <h2 class="section-title">Our Story</h2>
+            <div class="our-story">
+                <div class="our-story-text">
+                    <h3>Supporting Local Artisans Since 2018</h3>
+                    <p>Dream Collective Canada is a locally-owned gift shop located in the heart of Vancouver. We proudly support local artisans and small businesses, offering a curated selection of handmade and unique items, including art, jewelry, home decor, and personalized gifts.</p>
+                    <p>Our shop is the perfect destination for finding one-of-a-kind treasures while supporting the local community. Whether you're shopping for a thoughtful gift or treating yourself, Dream Collective Canada is here to inspire and delight.</p>
+                    <a href="#" class="btn">Learn More</a>
+                </div>
+                <div class="our-story-image">
+                    <img src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Dream Collective store interior">
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">Shop Our Collections</h2>
+            <div class="categories">
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1605100804763-247f67b3557e?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Jewelry">
+                    <div class="category-overlay">
+                        <h3>Jewelry</h3>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1556911220-bff31c812dba?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Home Decor">
+                    <div class="category-overlay">
+                        <h3>Home Decor</h3>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1536924940846-227afb31e2a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Art">
+                    <div class="category-overlay">
+                        <h3>Art</h3>
+                    </div>
+                </div>
+                <div class="category-card">
+                    <img src="https://images.unsplash.com/photo-1607082348824-0a96f2a4b9da?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80" alt="Personalized Gifts">
+                    <div class="category-overlay">
+                        <h3>Personalized Gifts</h3>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container">
+            <h2 class="section-title">Meet Our Artisans</h2>
+            <div class="artisans">
+                <div class="artisan-card">
+                    <div class="artisan-image">
+                        <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Sarah Johnson">
+                    </div>
+                    <div class="artisan-info">
+                        <h3>Sarah Johnson</h3>
+                        <p>Ceramic Artist</p>
+                        <p>Creating functional pottery with unique glazes in East Vancouver</p>
+                    </div>
+                </div>
+                <div class="artisan-card">
+                    <div class="artisan-image">
+                        <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Michael Chen">
+                    </div>
+                    <div class="artisan-info">
+                        <h3>Michael Chen</h3>
+                        <p>Jewelry Designer</p>
+                        <p>Handcrafted silver and gold pieces inspired by West Coast nature</p>
+                    </div>
+                </div>
+                <div class="artisan-card">
+                    <div class="artisan-image">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-1.2.1&auto=format&fit=crop&w=634&q=80" alt="Emma Rodriguez">
+                    </div>
+                    <div class="artisan-info">
+                        <h3>Emma Rodriguez</h3>
+                        <p>Textile Artist</p>
+                        <p>Handwoven scarves and home textiles using natural dyes</p>
+                    </div>
+                </div>
+            </div>
+            <div style="text-align: center; margin-top: 2rem;">
+                <a href="#" class="btn">View All Artisans</a>
+            </div>
+        </section>
+
+        <section class="shop-local">
+            <h2 class="section-title">Why Shop Local?</h2>
+            <div class="benefits">
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-heart"></i>
+                    </div>
+                    <h3>Support Community</h3>
+                    <p>Your purchase directly supports local artists and their families</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-leaf"></i>
+                    </div>
+                    <h3>Sustainable</h3>
+                    <p>Handmade items have a smaller environmental footprint</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-gem"></i>
+                    </div>
+                    <h3>Unique Finds</h3>
+                    <p>Discover one-of-a-kind pieces you won't find anywhere else</p>
+                </div>
+                <div class="benefit">
+                    <div class="benefit-icon">
+                        <i class="fas fa-hands-helping"></i>
+                    </div>
+                    <h3>Personal Connection</h3>
+                    <p>Meet the makers and learn the stories behind your purchases</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-container">
+            <div class="footer-links">
+                <div class="footer-logo">Dream Collective</div>
+                <p>Your destination for locally-made gifts and treasures in Vancouver, BC.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-facebook"></i></a>
+                    <a href="#"><i class="fab fa-pinterest"></i></a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Shop</a></li>
+                    <li><a href="#">Artisans</a></li>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h3>Visit Us</h3>
+                <address>
+                    123 Main Street<br>
+                    Vancouver, BC V6B 1A1<br>
+                    <br>
+                    Hours:<br>
+                    Mon-Fri: 10am - 6pm<br>
+                    Sat: 10am - 5pm<br>
+                    Sun: 12pm - 5pm
+                </address>
+            </div>
+            <div class="footer-links newsletter">
+                <h3>Stay Connected</h3>
+                <p>Subscribe to our newsletter for updates on new arrivals and special events.</p>
+                <input type="email" placeholder="Your email address">
+                <a href="#" class="btn">Subscribe</a>
+            </div>
+        </div>
+        <div class="copyright">
+            <p>&copy; 2023 Dream Collective Canada. All rights reserved.</p>
+        </div>
+    </footer>
+</body>
+</html>
